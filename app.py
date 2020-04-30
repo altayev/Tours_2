@@ -49,4 +49,5 @@ def render_tours(id):
 	)
 
 
-app.run('127.0.0.1', 8000)
+if __name__ == '__main__':
+    app.run()
