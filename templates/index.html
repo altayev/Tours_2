@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+  <main class="container mt-3">
+    <!-- HERO -->
+    <section style="background-image: url('https://d3hne3c382ip58.cloudfront.net/files/uploads/bookmundi/resized/countrybanner/travelling-in-mongolia-tours-and-vacation-packages-1503507917-1920X700.jpg');" class="jumbotron text-center mt-4">
+      <h1 class="display-4">Всякие туры</h1>
+      <p class="lead">{{subtitle}}</p>
+      <p class="mt-5 w-50 mx-auto">{{description}}</p>
+    </section>
+    <!-- CARDS -->
+    <div class="row mt-5">
+        {% for num, tour in tours.items() %}
+          <div class="col-4">
+            <div class="card mb-4">
+              <div class="embed-responsive embed-responsive-16by9">
+                 <img class="card-img-top embed-responsive-item" src="{{ tour.picture }}" alt="" />
+              </div>
+              <div class="card-body">
+                  <h2 class="h5 card-title"><a href="/tours/{{ num }}/">{{ tour.title }} {{ tour.stars }}&#9733;</a></h2>
+                  <p class="h6">{{ tour.country }} {{ departures.get(tour.departure) }}</p>
+                  <p class="card-text">{{ tour.description|truncate(180) }}</p>
+                  <p class="font-weight-bold">{{ tour.date }}, {{ tour.nights }} ночей, {{ tour.price }}&#8381;
+                  </p>
+                  <a href="/tours/{{ num }}/" class="btn btn-sm btn-primary">Подробнее</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+  </main>
+{% endblock content %}
