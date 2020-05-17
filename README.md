@@ -1,4 +1,4 @@
 # Tours
-## Контакты
-Я в телеграме @sult8
+Учебный проект
+http://stepiktours.herokuapp.com/
  
